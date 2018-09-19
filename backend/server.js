@@ -13,14 +13,13 @@ var io = socketIO(server);
 io.on('connection' ,(socket)=>{
     console.log("new user connected");
 
-    socket.emit('newemail', {
-        'from':'lalith889@gmail.com',
-        'name':'lalith',
-        'text':'hai i know you are learning socket.io'
-    })
     socket.on('createmail', (data)=>{
         console.log(data);
-    })
+        io.emit('dummydata', {
+            name:data
+        });
+    });
+
     socket.on('disconnect', ()=>{
         console.log("client disconnected from server");
     })
