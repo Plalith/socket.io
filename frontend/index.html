@@ -2,11 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
-
-</head>
-<body>
-    <h1>Welcome to chat app</h1>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/js/index.js"></script>
+</head>
+<body>
+
+    <h1>Welcome to chat app</h1>
+    <input id="message" type="text" name="message">
+    <button onclick="sendmessage();">Submit</button>
+    <br>
+    <ol id="messages"></ol>
+
+
 </body>
 </html>

@@ -15,12 +15,11 @@ io.on('connection' ,(socket)=>{
     socket.emit('dummydata', generatemessage('admin', 'Hia you are connected to our server'));
     socket.broadcast.emit('dummydata', generatemessage('admin', 'Hey !! someone connected'));
 
-    // socket.on('createmail', (data)=>{
-    //     console.log(data);
-    //     socket.broadcast.emit('dummydata', {
-    //         name:data
-    //     });
-    // });
+    socket.on('createmail', (data , ack)=>{
+        console.log(data);
+        socket.broadcast.emit('recpit', generatemessage(data.from ,data.text , data.time));
+        ack(generatemessage(data.from ,data.text , data.time));
+    });
 
     socket.on('disconnect', ()=>{
         console.log("client disconnected from server");
